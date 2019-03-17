@@ -1,0 +1,16 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <span>Values</span>
+        </div>
+        <div class="card-body">
+          <p *ngFor="let value of values">
+            {{value.id}}, {{value.name}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
