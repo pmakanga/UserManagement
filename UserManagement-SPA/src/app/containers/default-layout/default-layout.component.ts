@@ -27,4 +27,12 @@ export class DefaultLayoutComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.changes.disconnect();
   }
+
+  // logout and remove the token from the local storage
+  logout() {
+    localStorage.removeItem('token');
+    console.log('logged out');
+  }
 }
+
+
