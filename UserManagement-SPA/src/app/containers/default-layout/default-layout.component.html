@@ -17,7 +17,7 @@
 
   <ul class="nav navbar-nav ml-auto">
     <li class="nav-item px-3">
-      <a>Welcome <b>Patrick</b></a>
+      <a>Welcome <b>{{authService.decodedToken?.unique_name | titlecase }}</b></a>
     </li>
     <li class="nav-item px-3">
       <a class="nav-link" href="#"[routerLink]="['/login']" (click)="logout()"><i class="fa fa-sign-out"></i>Logout</a>

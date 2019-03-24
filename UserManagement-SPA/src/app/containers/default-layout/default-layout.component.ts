@@ -1,7 +1,8 @@
 import { Component, OnDestroy, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { navItems } from '../../_nav';
-
+import { AlertifyService } from '../../_services/alertify.service';
+import { AuthService } from '../../_services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +13,8 @@ export class DefaultLayoutComponent implements OnDestroy {
   public sidebarMinimized = true;
   private changes: MutationObserver;
   public element: HTMLElement;
-  constructor(@Inject(DOCUMENT) _document?: any) {
+  model: any;
+  constructor(private alertify: AlertifyService, public authService: AuthService, @Inject(DOCUMENT) _document?: any ) {
 
     this.changes = new MutationObserver((mutations) => {
       this.sidebarMinimized = _document.body.classList.contains('sidebar-minimized');
@@ -31,7 +33,12 @@ export class DefaultLayoutComponent implements OnDestroy {
   // logout and remove the token from the local storage
   logout() {
     localStorage.removeItem('token');
-    console.log('logged out');
+    this.alertify.message('logged out!');
+  }
+
+  login() {
+    this.authService.login(this.model).subscribe(next => {
+    });
   }
 }
 

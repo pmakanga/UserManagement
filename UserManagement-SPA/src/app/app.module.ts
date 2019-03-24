@@ -43,6 +43,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './_services/auth.service';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
+import { AlertifyService } from './_services/alertify.service';
 
 @NgModule({
   imports: [
@@ -74,6 +75,7 @@ import { ErrorInterceptorProvider } from './_services/error.interceptor';
   },
   ErrorInterceptorProvider,
   AuthService,
+  AlertifyService
 ],
   bootstrap: [ AppComponent ],
 })

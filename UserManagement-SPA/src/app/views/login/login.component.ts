@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../_services/auth.service';
 import { Router } from '@angular/router';
+import { AlertifyService } from '../../_services/alertify.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,23 +11,22 @@ export class LoginComponent implements OnInit {
 
   model: any = {};
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private alertify: AlertifyService) {}
 
   ngOnInit() {
   }
 
   login() {
     this.authService.login(this.model).subscribe(next => {
-      console.log('logged in succesfully!');
+      this.alertify.success('logged in succesfully!');
       this.router.navigate(['/dashboard']);
     }, error => {
-      console.error(error);
+      this.alertify.error(error);
     });
   }
 
   loggedIn() {
-    const token = localStorage.getItem('token');
-    return !!token;
+    this.authService.loggedIn();
   }
 
   logout() {
