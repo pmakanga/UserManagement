@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
       console.log('logged in succesfully!');
       this.router.navigate(['/dashboard']);
     }, error => {
-      console.error('Failed to login!');
+      console.error(error);
     });
   }
 

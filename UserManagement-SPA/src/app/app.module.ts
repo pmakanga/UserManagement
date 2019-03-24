@@ -42,6 +42,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './_services/auth.service';
+import { ErrorInterceptorProvider } from './_services/error.interceptor';
 
 @NgModule({
   imports: [
@@ -69,9 +70,11 @@ import { AuthService } from './_services/auth.service';
   ],
   providers: [{
     provide: LocationStrategy,
-    useClass: HashLocationStrategy
+    useClass: HashLocationStrategy,
   },
-  AuthService],
-  bootstrap: [ AppComponent ]
+  ErrorInterceptorProvider,
+  AuthService,
+],
+  bootstrap: [ AppComponent ],
 })
 export class AppModule { }
