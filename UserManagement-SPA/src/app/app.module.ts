@@ -44,6 +44,8 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from './_services/auth.service';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { AlertifyService } from './_services/alertify.service';
+import { AuthGuard } from './_guards/auth.guard';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
 
 @NgModule({
   imports: [
